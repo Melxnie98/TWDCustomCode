@@ -1,0 +1,73 @@
+<style>
+  /* The little boxes containing tab header */
+    #tabs {
+    display: flex;
+    gap: 10px;
+  }
+
+/* The text area  */
+  .tablink{
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    color: #00457D;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* For when a button is selected  */
+  .selected {
+    color: white;
+    background-color: #00457D;
+  }
+  
+	.tablink:not(.selected):hover {
+    color: white;
+    background-color: #009AC7;
+    transition: color .2s, background-color .2s;
+  }
+
+ /* For when you hover over a button  */
+  .module-container {
+    transition: opacity 200ms;
+  }
+
+
+	.module > div:first-child {
+		display: flex;
+  	flex-direction: column;
+	}
+
+ /* to make the buttons responsive to screen size */
+	.module .et_pb_button_module_wrapper {
+		display: flex;
+		flex-grow: 2;
+	}
+
+ /* to make the buttons responsive to phone and tablet */
+  @media only screen and (max-width: 1400px) {
+    #tabs {
+      flex-wrap: wrap;
+      column-gap: initial;
+      justify-content: space-between
+    }
+    
+     
+    .tablink {
+      width: 32%;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    #tabs {
+      flex-wrap: wrap;
+    	gap: 0px;
+    }
+    
+    .tablink {
+      width: calc(50% - 5px);
+    }
+  }
+</style>
