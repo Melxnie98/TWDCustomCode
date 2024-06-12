@@ -30,28 +30,6 @@
 	padding-right: 0;
 }
 
-/* ----------------------------------------- IMAGES ------------------------------------------------- */
-
-/* For items to be read by screenreader but not seen. Have applied it also to the image captions built into wordpress to make adding long descriptions easier */
-.screenreader-only, .wp-caption-text, #main-content sup.footnote a:before {
-position:absolute;
-left:-10000px;
-top:auto;
-width:1px;
-height:1px;
-overflow:hidden;
-}
-/* this overrides the wordpress styling for images with captions, which looks ghastly otherwise */
-.wp-caption {
-border: none !important;
-background-color: transparent !important;
-margin-bottom: 0;
-max-width: 100%;
-padding: 0 0 1em 0;
-}
-.wp-caption + p { /* adding a caption to an image adds an extraneous  element underneath the image */
-	display:none;
-}
 
 
 /* ----------------------------------------- FOOTNOTES ------------------------------------------------- */
@@ -70,7 +48,10 @@ padding: 0 0 1em 0;
 	content: "scroll to footnote ";
 }
 
+
+
 /* ----------------------------------------- Drop Cap ------------------------------------------------- */
+
 /* place a drop-caps on the opening paragraph */
 .drop-cap > .et_pb_text_inner:first-letter { 
   float: left;
@@ -103,42 +84,53 @@ blockquote {
 	top: 11px !important;
 	margin-right: 15px;
 }
+
 .et_pb_toggle_title {
 	padding-right: 0px !important;
 	/*text-indent:-38px;*/
 	padding-left: 36px !important;
 	font-size: 19px !important;
 }
+
 .et_pb_toggle_title:hover {
 	text-decoration: underline;
 }
+
 .et_pb_toggle_content {
 	padding-left: 36px;
 }
 
 /* ----------------------------------------- Buttons ------------------------------------------------- */
+
 .et_pb_button_module_wrapper {
 	margin-bottom: 1em;
 	margin-right: 20px;
 }
+
+/* style the buttons using css because we add the div wrapper and class names to links within the toggles as the button module can't be nested within a toggle.*/ 
+/* Also, we add the button wrapper and classname to any 'a' links where we want to add an aria-label for accessibility; the Button module can't accommodate aria-label */
 .et_pb_button:not(.button-outline,.et_pb_more_button) {
-/* style the buttons using css because we add the div wrapper and class names to links within the toggles as the button module can't be nested within a toggle. Also, we add the button wrapper and classname to any 'a' links where we want to add an aria-label for accessibility; the Button module can't accommodate aria-label */
 	text-decoration: none !important;
 	background: #00457d !important;
 	color: #ffffff !important;
 	border: 0 !important;
 }
-.button-outline { /* the rounded button without the fill colour. Used in the row template "See also tiles - 2 col" */
+
+/* the rounded button without the fill colour. Used in the row template "See also tiles - 2 col" */
+.button-outline { 
 	border-radius: 32px !important;
 	border-color: #00457d !important;
 	color: #00457d !important;
 }
-.et_pb_more_button { /* the rounded button without the fill colour. Used in the carousels template, e.g. the homepage */
+
+/* the rounded button without the fill colour. Used in the carousels template, e.g. the homepage */
+.et_pb_more_button { 
 	border-radius: 32px !important;
 	border-color: #ffffff !important;
 /*	color: #ffffff !important; */
 	background-color: transparent !important;
 }
+
 .button-outline:hover, .et_pb_more_button:hover {
 	border: 2px solid !important;
 	background-color: rgba(0,0,0,0.2) !important;
@@ -149,18 +141,43 @@ blockquote {
 /* add padlock icons on links that require a login
  * usage: add the classname "login-required" to a tags and button modules */ 
 
-.login-required::after { font-family: ETmodules!important; content:'~'!important; font-size:14px; line-height:inherit!important; margin-left:0.3em!important; speak:none; }
-.et_pb_button.login-required::after { content:'~'!important; font-size:16px!important; line-height:inherit!important; margin-left:0.3em!important; speak:none; }
+.login-required::after { 
+	font-family: ETmodules!important;
+	content:'~'!important; font-size:14px; 
+	line-height:inherit!important; 
+	margin-left:0.3em!important; 
+	speak:none; 
+}
+
+.et_pb_button.login-required::after { 
+	content:'~'!important; 
+	font-size:16px!important; 
+	line-height:inherit!important; 
+	margin-left:0.3em!important; 
+	speak:none; 
+}
+
+/* overwriting the default divi theme. Someone's infininte wisdom -- Not sure what this means */
 .et_pb_toggle_content p:last-of-type, p:not(.has-background):last-of-type {
-	padding-bottom: 1em; /* overwriting the default divi theme. Someone's infininte wisdom */
+	padding-bottom: 1em; 
 }
 
 .dcsbcm_divi_breadcrumbs { padding: 0 !important; }
 
 
 /* to make the Call to Action module button align to the bottom */
-.et_pb_button { text-decoration:none !important; align-self: flex-end; margin-bottom: 10px; }
-.et_pb_promo { display: flex; flex-direction: column; align-items: stretch; justify-content: space-between; }
+.et_pb_button { 
+	text-decoration:none !important; 
+	align-self: flex-end; 
+	margin-bottom: 10px; 
+}
+
+.et_pb_promo { 
+	display: flex; 
+	flex-direction: column; 
+	align-items: stretch; 
+	justify-content: space-between; 
+}
 
 
 /* ----------------------------------------- Sign up Form ------------------------------------------------- */
@@ -183,23 +200,18 @@ blockquote {
 }
 
 
-/* Set the left margin to 304px for the content body (for desktop) using CSS, rather than in the module,
- * to avoid it applying the !important rule. That would override the 0px on @media print declaration
-.main-body-with-side-nav {
-	margin-left: 304px !important;
-} */
-
-
 /* ----------------------------------------- Tablet screen ------------------------------------------------- */
 
 /* Change width of the row for tablet */
+
 @media (min-width:768px) and (max-width:980px){
-#main-content .et_pb_row:not(.et_pb_row--with-menu){
-    width: auto !important;
-}
-.main-body-with-side-nav {
-	margin-left: 0px !important;
-}
+	#main-content .et_pb_row:not(.et_pb_row--with-menu){
+	    width: auto !important;
+	}
+		
+	.main-body-with-side-nav {
+		margin-left: 0px !important;
+	}
 }
 
 
@@ -222,49 +234,84 @@ blockquote {
    et_pb_portfolio_items is the Filterable Portfolio module
    et_pb_portfolio_grid_items is the standard Portfolio module */
 .cards-row-3, .cards-row-4, .et_pb_portfolio_grid_items>div, .et_pb_portfolio_items>div {
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 100%;
+	  flex-grow: 0;
+	  flex-shrink: 0;
+	  flex-basis: 100%;
 }
 
 /* had to do this here because the module settings were ignored */
 .et_pb_portfolio_items h3, .et_pb_post h3 { 
 	font-weight:300 !important;
 }
+
 .et_pb_grid_item.et_pb_portfolio_item {
 	margin: 0 1.5% 30px 1.5% !important;
 }
+
 .et_portfolio_image img {
 	width: 100%
 }
+
 .cards-row-3 a, .cards-row-4 a {
 	text-decoration: none !important;
 	width: 100%;
 }
+
 .cards-row-3 h2 a:hover, .cards-row-4 h2 a:hover, .cards-row-3 h3 a:hover, .cards-row-4 h3 a:hover {
 	text-decoration: underline !important;
-	
 }
+
+
+
+/* ----------------------------------------- IMAGES ------------------------------------------------- */
+
+/* For items to be read by screenreader but not seen. Have applied it also to the image captions built into wordpress to make adding long descriptions easier */
+.screenreader-only, .wp-caption-text, #main-content sup.footnote a:before {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+
+/* this overrides the wordpress styling for images with captions, which looks ghastly otherwise */
+.wp-caption {
+	border: none !important;
+	background-color: transparent !important;
+	margin-bottom: 0;
+	max-width: 100%;
+	padding: 0 0 1em 0;
+}
+
+.wp-caption + p { /* adding a caption to an image adds an extraneous  element underneath the image */
+	display:none;
+}
+
 
 
 /* ----------------------------------------- CASE STUDY PICTURE CARDS ------------------------------------------------- */
 /* the case study picture cards */
 
-.et_pb_portfolio_grid_items, .et_pb_portfolio_items { 
-  display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
+.et_pb_portfolio_grid_items, .et_pb_portfolio_items {
+	display: flex;
+	align-items: stretch;
+	flex-wrap: wrap;
 }
+
 .et_pb_post_extra.el_dbe_block_extended { /* the Divi Blog Extras module. Remove the border from the tiles. */
 	border: none;
 }
+
 .et_pb_grid_item {
   box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3);
 }
+
 .et_pb_grid_item h3 {
-  padding: 10px 20px 30px 20px !important;
-	
+  padding: 10px 20px 30px 20px !important;	
 }
+
+
 @media only screen and (min-width: 768px) and (max-width: 1280px){
 	.cards-row-3 { flex-basis: 47% !important; }
 	.subpage-title-col { 
@@ -273,14 +320,20 @@ blockquote {
 		margin-bottom: 30px;
 	}
 }
+
+
 @media only screen and (min-width: 768px) and (max-width: 1580px){
 	.cards-row-4, .et_pb_portfolio_grid_items>div, .et_pb_portfolio_items>div {
 		flex-basis: 47% !important;
 	}
 }
+
+
 @media only screen and (min-width: 1280px){
 	  .cards-row-3 { flex-basis: 31% !important; }
 }
+
+
 @media only screen and (min-width: 1580px){
 	.cards-row-4, .et_pb_portfolio_grid_items>div, .et_pb_portfolio_items>div {
 		flex-basis: 22% !important;
@@ -291,6 +344,8 @@ blockquote {
 }
 
 /* end picture cards wrap */
+
+
 
 /* ----------------------------------------- TOP NAV MENU ------------------------------------------------- */
 
@@ -330,7 +385,11 @@ blockquote {
    }
  }
 
+
+
 /* ----------------------------------------- GLOBAL MENUE IE BIG MENU ON LEFT ------------------------------------------------- */
+
+
 
 /* START: Collapse Divi Menu Module Submenus and Keep Parent Items Clickable on Mobile */
 /* Parent menu item */
