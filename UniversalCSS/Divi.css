@@ -1,13 +1,7 @@
 
-/* Added by Craig Housley 
-@font-face {
-  font-family: 'NationalBold';
-  src: url("/files/2021/02/NationalWeb-Bold.woff2") format("woff2");
-   }
-@font-face {
-	  font-family: 'NationalBook';
-      src: url("/files/2021/02/NationalWeb-Book.woff2") format("woff2");
-}*/
+/* ----------------------------------------- FONT SETTINGS ------------------------------------------------- */
+/* Font */
+
 @font-face {
   font-family: 'National-SemiboldItalic';
   font-display:swap;
@@ -20,13 +14,7 @@
 }
 /* force the h2 font size on columns because stupid Divi theme thinks they should be relative sizes depending on the column width. The 'not' bit is for the tiles on the homepage */
 
-/* Melanie - I think this may fix the error but not sure! 
- * 
- .et_pb_column_2_5 h2:not(.et_pb_promo_description) h2,
-.et_pb_column_1_3 h2 {
-	font-size: 28px !important;
 
-}*/
 /*
 .et_pb_column_2_5 h2:not(.et_pb_promo_description h2), .et_pb_column_1_3 h2 {
 	font-size: 28px !important;
@@ -41,6 +29,8 @@
 .searchandfilter li {
 	padding-right: 0;
 }
+
+/* ----------------------------------------- IMAGES ------------------------------------------------- */
 
 /* For items to be read by screenreader but not seen. Have applied it also to the image captions built into wordpress to make adding long descriptions easier */
 .screenreader-only, .wp-caption-text, #main-content sup.footnote a:before {
@@ -63,10 +53,26 @@ padding: 0 0 1em 0;
 	display:none;
 }
 
-.reference, .footnotes li { text-indent:-50px; padding-left:50px; } /* to indent references */
-.reference a, .footnotes a { color:inherit; } /* to remove the blue colour from reference links */
 
-.drop-cap > .et_pb_text_inner:first-letter { /* place a drop-caps on the opening paragraph */
+/* ----------------------------------------- FOOTNOTES ------------------------------------------------- */
+
+/* to indent references */
+.reference, .footnotes li { text-indent:-50px; padding-left:50px; } 
+
+/* to remove the blue colour from reference links */
+.reference a, .footnotes a { color:inherit; } 
+
+/* the footnote was too high and bleeding into the line above */
+#main-content sup.footnote { 
+	bottom: 0.5em;
+}
+#main-content sup.footnote a::before { /* make the footnote link screen reader readable */
+	content: "scroll to footnote ";
+}
+
+/* ----------------------------------------- Drop Cap ------------------------------------------------- */
+/* place a drop-caps on the opening paragraph */
+.drop-cap > .et_pb_text_inner:first-letter { 
   float: left;
   font-family: Georgia;
   font-size: 75px;
@@ -76,16 +82,13 @@ padding: 0 0 1em 0;
   padding-left: 3px;
 }
 
-#main-content sup.footnote { /* the footnote was too high and bleeding into the line above */
-	bottom: 0.5em;
-}
-#main-content sup.footnote a::before { /* make the footnote link screen reader readable */
-	content: "scroll to footnote ";
-}
+
 blockquote {
   background: #ffffff;
   padding: 20px 20px 10px 20px;
 }
+
+
 .current-menu-item > a:first-child { background: #f2f2f2; }
 .et_pb_menu_0_tb_header.et_pb_menu ul li a:hover { text-decoration:underline; opacity:1 }
 #menu-vertical-menu li { padding-left: 0; }
@@ -113,6 +116,7 @@ blockquote {
 	padding-left: 36px;
 }
 
+/* ----------------------------------------- Buttons ------------------------------------------------- */
 .et_pb_button_module_wrapper {
 	margin-bottom: 1em;
 	margin-right: 20px;
@@ -139,18 +143,27 @@ blockquote {
 	border: 2px solid !important;
 	background-color: rgba(0,0,0,0.2) !important;
 }
+
+
+/* ----------------------------------------- Padlock icon ------------------------------------------------- */
 /* add padlock icons on links that require a login
  * usage: add the classname "login-required" to a tags and button modules */ 
+
 .login-required::after { font-family: ETmodules!important; content:'~'!important; font-size:14px; line-height:inherit!important; margin-left:0.3em!important; speak:none; }
 .et_pb_button.login-required::after { content:'~'!important; font-size:16px!important; line-height:inherit!important; margin-left:0.3em!important; speak:none; }
 .et_pb_toggle_content p:last-of-type, p:not(.has-background):last-of-type {
 	padding-bottom: 1em; /* overwriting the default divi theme. Someone's infininte wisdom */
 }
+
 .dcsbcm_divi_breadcrumbs { padding: 0 !important; }
+
 
 /* to make the Call to Action module button align to the bottom */
 .et_pb_button { text-decoration:none !important; align-self: flex-end; margin-bottom: 10px; }
 .et_pb_promo { display: flex; flex-direction: column; align-items: stretch; justify-content: space-between; }
+
+
+/* ----------------------------------------- Sign up Form ------------------------------------------------- */
 
 /* styling for the sign-up form */
 .et_pb_newsletter_form input, .et_pb_newsletter_form button {
@@ -176,6 +189,9 @@ blockquote {
 	margin-left: 304px !important;
 } */
 
+
+/* ----------------------------------------- Tablet screen ------------------------------------------------- */
+
 /* Change width of the row for tablet */
 @media (min-width:768px) and (max-width:980px){
 #main-content .et_pb_row:not(.et_pb_row--with-menu){
@@ -186,6 +202,8 @@ blockquote {
 }
 }
 
+
+/* ----------------------------------------- Mobile Screen ------------------------------------------------- */
 
 /* Change width of the row for Mobile */
 @media (max-width:767px){
@@ -209,7 +227,8 @@ blockquote {
   flex-basis: 100%;
 }
 
-.et_pb_portfolio_items h3, .et_pb_post h3 { /* had to do this here because the module settings were ignored */
+/* had to do this here because the module settings were ignored */
+.et_pb_portfolio_items h3, .et_pb_post h3 { 
 	font-weight:300 !important;
 }
 .et_pb_grid_item.et_pb_portfolio_item {
@@ -224,8 +243,14 @@ blockquote {
 }
 .cards-row-3 h2 a:hover, .cards-row-4 h2 a:hover, .cards-row-3 h3 a:hover, .cards-row-4 h3 a:hover {
 	text-decoration: underline !important;
+	
 }
-.et_pb_portfolio_grid_items, .et_pb_portfolio_items { /* the case study picture cards */
+
+
+/* ----------------------------------------- CASE STUDY PICTURE CARDS ------------------------------------------------- */
+/* the case study picture cards */
+
+.et_pb_portfolio_grid_items, .et_pb_portfolio_items { 
   display: flex;
   align-items: stretch;
   flex-wrap: wrap;
@@ -238,6 +263,7 @@ blockquote {
 }
 .et_pb_grid_item h3 {
   padding: 10px 20px 30px 20px !important;
+	
 }
 @media only screen and (min-width: 768px) and (max-width: 1280px){
 	.cards-row-3 { flex-basis: 47% !important; }
@@ -263,8 +289,10 @@ blockquote {
 		width: 22% !important;  added this to prevent the 4th card wrapping early on certain screen resolution 
 	}*/
 }
+
 /* end picture cards wrap */
 
+/* ----------------------------------------- TOP NAV MENU ------------------------------------------------- */
 
 /*Menu CTA Button*/
 #et-top-navigation .et_pb_button {
@@ -290,6 +318,109 @@ blockquote {
 #et-top-navigation .et_pb_button:after {
     font-size: 23px;
 }
+
+/* Change the breakpoint for when the mobile menu displays */
+@media (max-width: 1396px) {
+   #et_mobile_nav_menu {
+     display: block;
+   }
+ 
+   #top-menu {
+     display: none;
+   }
+ }
+
+/* ----------------------------------------- GLOBAL MENUE IE BIG MENU ON LEFT ------------------------------------------------- */
+
+/* START: Collapse Divi Menu Module Submenus and Keep Parent Items Clickable on Mobile */
+/* Parent menu item */
+.et_mobile_nav_menu::before {
+	content: "Global menu";
+	padding-top: 5px;
+}
+
+.et_pb_module .et_mobile_menu .menu-item-has-children.clickable,
+.et_pb_module .et_mobile_menu .menu-item-has-children > a {
+  position: relative;
+  background: transparent;
+}
+
+/* Parent menu item icon */
+.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable) > a:after,
+.et_pb_module .et_mobile_menu .menu-item-has-children.clickable > span.parent_icon:after {
+  font-family: "ETmodules";
+  text-align: center;
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+/* Disabled parent menu item icon positioning */
+.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable) > a:after {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+}
+
+/* Clickable parent menu item icon */
+.et_pb_module .et_mobile_menu .menu-item-has-children.clickable > span.parent_icon {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  align-items: center;
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  background: rgba(0, 0, 0, 0);
+  border-left: 1px solid #dcdcdc;
+  right: 0;
+  top: 0;
+  z-index: 9;
+}
+
+/* Collapsed submenu parent menu item icon */
+.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable) > a:after,
+.et_pb_module .et_mobile_menu .menu-item-has-children.clickable > span.parent_icon:after {
+  content: "\33";
+  color: #333333;
+  font-size: 22px;
+}
+
+/* Expanded submenu parent menu item icon */
+.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable).visible > a:after,
+.et_pb_module .et_mobile_menu .menu-item-has-children.clickable.visible > span.parent_icon:after {
+  content: "\32";
+  color: #333333;
+  font-size: 22px
+}
+
+.et_pb_module .et_mobile_menu ul.sub-menu a {
+  font-weight: normal;
+}
+
+.et_pb_module .et_mobile_menu .current-menu-item>a:first-child {
+	background: #e6e6e6 !important;
+}
+
+/* Hide submenu by default */
+.et_pb_module .et_mobile_menu ul.sub-menu,
+.et-db #et-boc .et-l .et_pb_menu .et_mobile_menu > ul.sub-menu,
+.et-db #et-boc .et-l .et_pb_fullwidth_menu .et_mobile_menu > ul.sub-menu {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Show submenu */
+.et_pb_module .et_mobile_menu .visible > ul.sub-menu,
+.et-db #et-boc .et-l .et_pb_menu .et_mobile_menu .visible > ul.sub-menu,
+.et-db #et-boc .et-l .et_pb_fullwidth_menu .et_mobile_menu .visible > ul.sub-menu {
+  display: block !important;
+  visibility: visible !important;
+}
+/* END: Collapse Divi Menu Module Submenus and Keep Parent Items Clickable on Mobile */
 
 /* Added by Tony Chung to expand all toggles when printing */
 /* Print toggle styles begin */
@@ -318,6 +449,11 @@ blockquote {
 	}
 }
 /* Print toggle styles end */
+
+
+
+
+/* ----------------------------------------- TABLE SETTINGS ------------------------------------------------- */
 
 /* Added by Tony Chung to make table more mobile friendly */
 /* Table styles begin */
@@ -387,97 +523,9 @@ table.uoa-table td { background-color:#eaf5f8; }
 table.uoa-table caption { text-align:left; }
 /* End styled tables */
 
-/* Change the breakpoint for when the mobile menu displays */
-@media (max-width: 1396px) {
-   #et_mobile_nav_menu {
-     display: block;
-   }
- 
-   #top-menu {
-     display: none;
-   }
- }
 
-/* START: Collapse Divi Menu Module Submenus and Keep Parent Items Clickable on Mobile */
-/* Parent menu item */
-.et_mobile_nav_menu::before {
-	content: "Global menu";
-	padding-top: 5px;
-}
+/* ----------------------------------------- BULLET POINT STYLING ------------------------------------------------- */
 
-.et_pb_module .et_mobile_menu .menu-item-has-children.clickable,
-.et_pb_module .et_mobile_menu .menu-item-has-children > a {
-  position: relative;
-  background: transparent;
-}
-/* Parent menu item icon */
-.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable) > a:after,
-.et_pb_module .et_mobile_menu .menu-item-has-children.clickable > span.parent_icon:after {
-  font-family: "ETmodules";
-  text-align: center;
-  speak: none;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  -webkit-font-smoothing: antialiased;
-  font-size: 16px;
-}
-/* Disabled parent menu item icon positioning */
-.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable) > a:after {
-  position: absolute;
-  top: 13px;
-  right: 10px;
-}
-/* Clickable parent menu item icon */
-.et_pb_module .et_mobile_menu .menu-item-has-children.clickable > span.parent_icon {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
-  align-items: center;
-  position: absolute;
-  width: 46px;
-  height: 46px;
-  background: rgba(0, 0, 0, 0);
-  border-left: 1px solid #dcdcdc;
-  right: 0;
-  top: 0;
-  z-index: 9;
-}
-/* Collapsed submenu parent menu item icon */
-.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable) > a:after,
-.et_pb_module .et_mobile_menu .menu-item-has-children.clickable > span.parent_icon:after {
-  content: "\33";
-  color: #333333;
-  font-size: 22px;
-}
-/* Expanded submenu parent menu item icon */
-.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable).visible > a:after,
-.et_pb_module .et_mobile_menu .menu-item-has-children.clickable.visible > span.parent_icon:after {
-  content: "\32";
-  color: #333333;
-  font-size: 22px
-}
-.et_pb_module .et_mobile_menu ul.sub-menu a {
-  font-weight: normal;
-}
-.et_pb_module .et_mobile_menu .current-menu-item>a:first-child {
-	background: #e6e6e6 !important;
-}
-/* Hide submenu by default */
-.et_pb_module .et_mobile_menu ul.sub-menu,
-.et-db #et-boc .et-l .et_pb_menu .et_mobile_menu > ul.sub-menu,
-.et-db #et-boc .et-l .et_pb_fullwidth_menu .et_mobile_menu > ul.sub-menu {
-  display: none !important;
-  visibility: hidden !important;
-}
-/* Show submenu */
-.et_pb_module .et_mobile_menu .visible > ul.sub-menu,
-.et-db #et-boc .et-l .et_pb_menu .et_mobile_menu .visible > ul.sub-menu,
-.et-db #et-boc .et-l .et_pb_fullwidth_menu .et_mobile_menu .visible > ul.sub-menu {
-  display: block !important;
-  visibility: visible !important;
-}
-/* END: Collapse Divi Menu Module Submenus and Keep Parent Items Clickable on Mobile */
 
 /* Added by Tony Chung to change bullets to a checkbox style */
 /* bullet styles begin */
@@ -497,6 +545,8 @@ table.uoa-table caption { text-align:left; }
   padding-right: 5px;
 }
 /* bullet styles end */
+
+/* ----------------------------------------- EXTERNAL LINK SETTINGS ------------------------------------------------- */
 
 /* external link icon */
 .external-link {
