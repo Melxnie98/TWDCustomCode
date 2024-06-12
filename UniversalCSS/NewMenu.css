@@ -1,0 +1,28 @@
+/*#menu-melaniemenu {
+	display: flex; /* Use flexbox */
+  	/*flex-wrap: nowrap; /* Prevent wrapping of items */ 
+/*}
+
+#menu-melaniemenu > li {
+    flex-grow: 1; /* Allow items to grow to fit content */
+   /* flex-shrink: 1; /* Allow items to shrink if necessary */
+/*}
+
+/* Collapsed submenu parent menu item icon */
+/*#menu-melaniemenu .menu-item-has-children > a:after {
+	content: "\25B6";
+	color: white;
+	font-size: 0px;
+}
+
+ #menu-melaniemenu > li:hover{
+	 background-color: #f2f2f2 !important;
+}
+#menu-melaniemenu > li:hover a{
+	color: black !important;
+}
+
+#menu-melaniemenu > li ul.sub-menu a:hover {
+    background-color: #00457d!important;
+	color: white !important;
+}*/
