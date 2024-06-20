@@ -1,0 +1,124 @@
+/* This can be found by clicking the settings bar in purple divi header - clicking advanced and then custom css*/
+
+
+<style>
+/*------------------------------------------------------tool tags------------------------------------------------------------------*/
+/* Styles for tags within .toolTags */
+.toolTags > div {
+  display: inline-block; /* Display tags inline */
+  margin: 2px 4px 2px 0; /* Margin around tags (top, right, bottom, left) */
+  border-radius: 3px; /* Rounded corners for tags */
+  padding: 0 6px; /* Padding inside tags (top-bottom, left-right) */
+}
+
+/*----------------------------------------------------------------------event types-----------------------------------------------------------------------*/
+
+/* Specific styles for different types of events */
+.other-event {
+  background-color: #009AC7; /* Blue background */
+  color: #ffffff; /* White text */
+}
+
+.reminder-event {
+  background-color: #C70039; /* Red background */
+  color: #ffffff; /* White text */
+}
+
+.conference-event {
+  background-color: #00A64F; /* Green background */
+  color: #ffffff; /* White text */
+}
+
+.twpls-event {
+  background-color: #666666; /* Dark gray background */
+  color: #ffffff; /* White text */
+}
+
+/*----------------------------------------------------------------------RBC-----------------------------------------------------------------------------*/
+
+/* Styling for button with class .rbc-event */
+button.rbc-event {
+  background-color: transparent !important; /* Transparent background */
+}
+
+/* Styling for content of events */
+.rbc-event-content {
+  padding: 6px !important; /* Padding around event content */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Override background color for event content and event */
+.rbc-event-content, .rbc-event {
+  background-color: #009AC7 !important; /* Blue background */
+}
+
+/* Specific background color for events with title containing "Reminder" */
+.rbc-event-content[title*="Reminder"], .rbc-event[title*="Reminder"] {
+  background-color: #C70039 !important; /* Red background */
+}
+
+/* Specific background color for events with title containing "Conference" */
+.rbc-event-content[title*="Conference"], .rbc-event[title*="Conference"] {
+  background-color: #00A64F !important; /* Green background */
+}
+
+/* Specific background color for events with title containing "(PLS)" */
+.rbc-event-content[title*="(PLS)"], .rbc-event[title*="(PLS)"] {
+  background-color: #666666 !important; /* Dark gray background */
+}
+
+/* Styling for event containers */
+.rbc-events-container div {
+  border: none !important; /* No border for event containers */
+}
+
+/* Styling for event labels */
+.rbc-event-label {
+  font-size: 12px !important; /* Font size for event labels */
+}
+
+/* Remove padding for event labels inside .rbc-event */
+.rbc-event-label .rbc-event {
+  padding: 0 !important; /* No padding for event labels */
+}
+
+/* Styling for calendar-plus-a8e-link */
+.calendar-plus-a8e-link {
+  position: relative; /* Relative positioning */
+  clip-path: none; /* No clipping path */
+}
+
+/* Styling for buttons in the RBC toolbar */
+.rbc-toolbar button {
+  font-size: 16px !important; /* Font size for toolbar buttons */
+}
+
+/* Active state styling for buttons in the RBC toolbar */
+.rbc-toolbar button.rbc-active {
+  opacity: 1 !important; /* Full opacity for active buttons */
+}
+
+/* Styling for toolbar labels in the RBC toolbar */
+.rbc-toolbar-label {
+  font-size: 20px !important; /* Font size for toolbar labels */
+}
+
+/*-----------------------------------------------------------------------FILTER EVENTS--------------------------------------------------------------------------*/
+
+/* Styling to hide elements */
+.calendar-plus-filter-bar select,
+.calendar-plus-single-event-calendars {
+  display: none !important; /* Hide select and single-event-calendars */
+}
+
+/* Styling for #calendar-plus-search */
+#calendar-plus-search {
+  font-size: 18px; /* Font size for search element */
+  padding: 6px; /* Padding around search element */
+}
+
+/* Override margin for .calendar-plus-calendar-wrap */
+.calendar-plus-calendar-wrap {
+  margin: 0 !important; /* No margin */
+}
+</style>
