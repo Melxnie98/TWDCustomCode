@@ -1,0 +1,53 @@
+<style>
+
+
+/* ------------------------------------------------------  Carousel Arrows ------------------------------------------------------------------ */
+
+/* for the carousel */
+.et-pb-slider-arrows a {
+  text-decoration:none!important;    /*Removes text decoration (underline) from the arrows.*/
+  font-size:400%;                    /*Sets the font size to 400% of the default size.*/
+  background: rgb(0,0,0,0.5);        /*Sets a semi-transparent black background (rgba(0,0,0,0.5)).*/
+}
+
+/* Force Arrows to be Always Visible not just on hover (et-pb-arrow-prev and et-pb-arrow-next): */
+
+.et-pb-arrow-prev {
+  /*Positions the previous arrow (et-pb-arrow-prev) 22 pixels from the left edge and ensures it's fully opaque (opacity: 1). */
+  left:22px;
+  opacity:1;
+}
+
+/*Positions the next arrow (et-pb-arrow-next) 22 pixels from the right edge and ensures it's fully opaque (opacity: 1). */
+.et-pb-arrow-next {
+  right:22px;
+  opacity:1;
+}
+
+/* ------------------------------------------------------ Slide Titles ------------------------------------------------------------------ */
+
+.et_pb_slide_title a {
+  /*Removes text decoration (underline) from links within slide titles.*/
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------ Button ------------------------------------------------------------------ */
+
+/* the background colour of the button */
+/*Sets the background color of the "More" button (.et_pb_more_button inside .et_pb_slider_container_inner) to 
+a semi-transparent black (rgba(0,0,0,0.2)), overriding any existing styles (!important ensures this takes precedence).*/
+
+.et_pb_slider_container_inner .et_pb_more_button {
+	background-color: rgba(0,0,0,0.2)!important;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
