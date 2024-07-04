@@ -266,13 +266,24 @@ blockquote {
 /* ----------------------------------------- IMAGES ------------------------------------------------- */
 
 /* For items to be read by screenreader but not seen. Have applied it also to the image captions built into wordpress to make adding long descriptions easier */
-.screenreader-only, .wp-caption-text, #main-content sup.footnote a:before {
+.screenreader-only, .wp-caption-text, #main-content sup.footnote a:before .featherlight .caption{
 	position:absolute;
 	left:-10000px;
 	top:auto;
 	width:1px;
 	height:1px;
 	overflow:hidden;
+}
+
+/* make the lightbox effect on images more obvious */
+.featherlight {
+ background: rgba(0,0,0,0.7) !important;
+}
+.featherlight .featherlight-content {
+ background: transparent;
+}
+.featherlight .featherlight-close-icon {
+ opacity: 1;
 }
 
 /* this overrides the wordpress styling for images with captions, which looks ghastly otherwise */
