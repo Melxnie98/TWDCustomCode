@@ -1,14 +1,13 @@
 <div>
-    
     <button id="download-ics" class="et_pb_button">Download calendar link</button>
 </div>
 
 <script>
     // Extract event details from the HTML
     const eventName = document.querySelector('.tribe-events-single-event-title').textContent.trim();
-    const eventDateStart = "20241101T000000"; // To be generated from the date string below
-    const eventDateEnd = "20241101T235900";   // To be generated from the time string below
-    const eventUrl = window.location.href; // Get the current page URL
+    const eventDateStart = "20241101T000000"; // To be generated from date string 
+    const eventDateEnd = "20241101T235900";   // To be generated from time string 
+    const eventUrl = window.location.href; // Get the current page URL so the link will show up in calendar
 
     // Getting the event start date from the HTML
     const startDateElement = document.querySelector('.tribe-event-date-start');
