@@ -69,7 +69,6 @@ BEGIN:VEVENT
 SUMMARY:${eventName}
 DTSTART:${icsEventDateStart}
 DTEND:${icsEventDateEnd}
-URL:${eventUrl}
 DESCRIPTION:Event details for ${eventName} here is ${eventUrl}
 END:VEVENT
 END:VCALENDAR
