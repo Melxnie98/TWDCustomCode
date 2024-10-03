@@ -1,5 +1,5 @@
 <div>
-    <button id="download-ics" class="et_pb_button">Download calendar link</button>
+    <button id="download-ics" class="et_pb_button">Add to calendar</button>
 </div>
 
 <script>
@@ -69,7 +69,7 @@ BEGIN:VEVENT
 SUMMARY:${eventName}
 DTSTART:${icsEventDateStart}
 DTEND:${icsEventDateEnd}
-DESCRIPTION:Event details for ${eventName} here is ${eventUrl}
+DESCRIPTION:Details for this event (including a Zoom link if applicable) are on TeachWell Digital: ${eventUrl}
 END:VEVENT
 END:VCALENDAR
         `.trim();
