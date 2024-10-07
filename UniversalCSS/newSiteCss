@@ -1,0 +1,567 @@
+/* /////////////////////////////// */
+/* CSS FOR THE WORDPRESS MIGRATION */
+/* MOVE ANY CSS WE WANT TO KEEP TO THIS SECTION, THEN COMMENT IT OUT BELOW */
+
+/* Start buttons */
+/* Style buttons using css because we add the div wrapper and class names to links within the toggles as the button module can't be nested within a toggle. Also, we add the button wrapper and classname to any 'a' links where we want to add an aria-label for accessibility; the Button module can't accommodate aria-label */
+.et_pb_button:not(.et_pb_more_button) {
+	text-decoration:none !important;
+	border-color:#00467f;
+	border-radius:32px;
+	color:#00467f;
+	display:inline-block; /* so that the border remains intact when the text wraps */
+}
+.et_pb_more_button { /* the rounded button used in the carousels template, e.g. the homepage */
+	border-radius:32px !important;
+	border-color:#ffffff !important;
+	background-color:transparent !important;
+}
+.et_pb_button:hover, .et_pb_more_button:hover {
+	border:2px solid !important;
+	background-color:rgba(0,0,0,0.2) !important;
+}
+/* End buttons */
+
+/* Start footnotes */
+/* For use with the Footnotation plugin */
+/* The return arrow at the end of the footnote was floating over the text because of the footnote indentation CSS. Add padding to push it to the end of the line */
+.footnotes span.returnkey {
+	padding-left:50px;
+	font-size:100%;
+}
+sup.footnote { /* the footnote was too high and bleeding into the line above */
+	bottom: 0.5em;
+}
+sup.footnote a {
+	font-weight:normal;
+}
+sup.footnote a::before { /* make the footnote link screen reader readable */
+	content: "scroll to footnote ";
+}
+.footnotes li:before {
+	margin-right:0;
+}
+/* End footnotes */
+
+/* Start citation style */
+.reference, .footnotes li { text-indent:-50px; padding-left:50px; } /* to indent references */
+.reference a, .footnotes a { color:inherit; } /* to remove the blue colour from reference links */
+/* End citation style */
+
+/* External link icon for text links */
+.external-link {
+	background-image: url("/wp-content/uploads/2024/09/external-link-5.svg");
+	background-position: right center;
+	background-repeat:no-repeat;
+	padding-right: 17px;
+	margin-right: 5px;
+}
+/* External link icon end */
+
+
+
+/* END CSS FOR THE WORDPRESS MIGRATION */
+/* /////////////////////////////////// */
+
+
+
+/* force the h2 font size on columns because stupid Divi theme thinks they should be relative sizes depending on the column width. The 'not' bit is for the tiles on the homepage */
+
+
+
+
+/*
+.et_pb_column_2_5 h2:not(.et_pb_promo_description h2), .et_pb_column_1_3 h2 {
+	font-size: 28px !important;
+}*/
+.et_pb_column_2_5 h1 {
+	font-size: 30px !important;
+}
+
+/*.searchandfilter ul {
+	padding: 0 !important;
+}
+.searchandfilter li {
+	padding-right: 0;
+}*/
+
+/* For items to be read by screenreader but not seen. Have applied it also to the image captions built into wordpress to make adding long descriptions easier */
+.screenreader-only, .wp-caption-text, #main-content sup.footnote a::before, .featherlight .caption {
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+overflow:hidden;
+}
+/* this overrides the wordpress styling for images with captions, which looks ghastly otherwise */
+.wp-caption {
+border: none !important;
+background-color: transparent !important;
+margin-bottom: 0;
+max-width: 100%;
+padding: 0 0 1em 0;
+}
+.wp-caption + p { /* adding a caption to an image adds an extraneous  element underneath the image */
+	display:none;
+}
+
+/*.reference, .footnotes li { text-indent:-50px; padding-left:50px; } /* to indent references */
+/*.reference a, .footnotes a { color:inherit; } /* to remove the blue colour from reference links */
+
+
+/*#main-content sup.footnote { /* the footnote was too high and bleeding into the line above */
+/*	bottom: 0.5em;
+}
+#main-content sup.footnote a::before { /* make the footnote link screen reader readable */
+/*	content: "scroll to footnote ";
+}*/
+blockquote {
+  background: #ffffff;
+  padding: 20px 20px 10px 20px;
+}
+/* .current-menu-item > a:first-child { background: #f2f2f2; } */
+.et_pb_menu_0_tb_header.et_pb_menu ul li a:hover { text-decoration:underline; opacity:1 }
+#menu-vertical-menu li { padding-left: 0; }
+.current-menu-ancestor a { color:#efefef !important; }
+
+#global-footer-content, #branda_content_footer { display:none; } /* because the default UoA footer displays as well as the custom footer */
+.et_pb_row_0_tb_footer { display: block !important; } /* for some reason the footer was disabled on mobile */
+.et_pb_video_overlay_hover a { text-decoration:none !important; }
+.et_pb_toggle_title::before { /* the toggle icon on the left */
+	position: absolute;
+	left: 0px !important;
+	top: 11px !important;
+	margin-right: 15px;
+}
+.et_pb_toggle_title {
+	padding-right: 0px !important;
+	/*text-indent:-38px;*/
+	padding-left: 36px !important;
+	font-size: 19px !important;
+}
+
+.et_pb_toggle_title:hover {
+	text-decoration: underline;
+}
+.et_pb_toggle_content {
+	padding-left: 36px;
+}
+
+.et_pb_button_module_wrapper {
+	margin-bottom: 1em;
+	margin-right: 20px;
+}
+/*.et_pb_button:not(.button-outline), .et_pb_button:not(.et_pb_more_button) {
+/* style the buttons using css because we add the div wrapper and class names to links within the toggles as the button module can't be nested within a toggle. Also, we add the button wrapper and classname to any 'a' links where we want to add an aria-label for accessibility; the Button module can't accommodate aria-label */
+/*	text-decoration: none !important;
+	border-color: #00467f;
+	border-radius: 32px;
+	color: #00467f;
+	/*background: #00457d !important;
+	color: #ffffff !important;
+	border: 0 !important;
+}
+/*.button-outline { /* the rounded button without the fill colour. Used in the row template "See also tiles - 2 col" */
+/*	border-radius: 32px !important;
+	border-color: #00467f !important;
+	color: #00467f !important;
+}*/
+/*.et_pb_more_button { /* the rounded button without the fill colour. Used in the carousels template, e.g. the homepage */
+/*	border-radius: 32px !important;
+	border-color: #ffffff !important;
+/*	color: #ffffff !important; */
+/*	background-color: transparent !important;
+}
+/*.button-outline:hover, .et_pb_button:hover, .et_pb_more_button:hover {
+	border: 2px solid !important;
+	background-color: rgba(0,0,0,0.2) !important;
+}
+/* add padlock icons on links that require a login
+ * usage: add the classname "login-required" to a tags and button modules */ 
+.login-required::after { font-family: ETmodules!important; content:'~'!important; font-size:14px; line-height:inherit!important; margin-left:0.3em!important; speak:none; }
+.et_pb_button.login-required::after { content:'~'!important; font-size:16px!important; line-height:inherit!important; margin-left:0.3em!important; speak:none; }
+.et_pb_toggle_content p:last-of-type, p:not(.has-background):last-of-type {
+	padding-bottom: 1em; /* overwriting the default divi theme. Someone's infininte wisdom */
+}
+.dcsbcm_divi_breadcrumbs { padding: 0 !important; }
+
+/* to make the Call to Action module button align to the bottom */
+.et_pb_button { text-decoration:none !important; align-self: flex-end; margin-bottom: 10px; }
+.et_pb_promo { display: flex; flex-direction: column; align-items: stretch; justify-content: space-between; }
+
+/* styling for the sign-up form */
+.et_pb_newsletter_form input, .et_pb_newsletter_form button {
+	width: 100%;
+}
+.et_pb_newsletter_form input {
+	padding: 14px 4%;
+	font-size: 16px;
+	color: #666;
+	border-width: 0;
+	border-radius: 3px;
+	margin-bottom: 1em;
+	font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
+}
+.et_pb_newsletter_form button {
+	cursor: pointer;
+}
+
+
+/* Set the left margin to 304px for the content body (for desktop) using CSS, rather than in the module,
+ * to avoid it applying the !important rule. That would override the 0px on @media print declaration
+.main-body-with-side-nav {
+	margin-left: 304px !important;
+} */
+
+/* Change width of the row for tablet */
+@media (min-width:768px) and (max-width:980px){
+#main-content .et_pb_row:not(.et_pb_row--with-menu){
+    width: auto !important;
+}
+.main-body-with-side-nav {
+	margin-left: 0px !important;
+}
+}
+
+
+/* Change width of the row for Mobile */
+@media (max-width:767px){
+	#main-content .et_pb_row:not(.et_pb_row--with-menu){
+		width: auto !important;
+	}
+	.main-body-with-side-nav {
+		margin-left: 0px !important;
+	}
+	.et_pb_title_container h1 {
+		font-size: 26px !important; /* because divi css overrides anything you set in both Theme Builder and Theme Customizer */
+	}	
+}
+
+/* Change when the picture cards wrap, i.e., what screen width 
+   et_pb_portfolio_items is the Filterable Portfolio module
+   et_pb_portfolio_grid_items is the standard Portfolio module */
+.cards-row-3, .cards-row-4, .et_pb_portfolio_grid_items>div, .et_pb_portfolio_items>div {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 100%;
+}
+
+.et_pb_portfolio_items h3, .et_pb_post h3 { /* had to do this here because the module settings were ignored */
+	font-weight:300 !important;
+}
+.et_pb_grid_item.et_pb_portfolio_item {
+	margin: 0 1.5% 30px 1.5% !important;
+}
+.et_portfolio_image img {
+	width: 100%
+}
+.cards-row-2 h2 a, .cards-row-2 h3 a, .cards-row-3 h2 a, .cards-row-3 h3 a, .cards-row-4 h2 a, .cards-row-4 h3 a {
+	text-decoration: none !important;
+	width: 100%;
+}
+.cards-row-2 h2 a:hover, .cards-row-2 h3 a:hover, .cards-row-3 h2 a:hover, .cards-row-3 h3 a:hover, .cards-row-4 h2 a:hover, .cards-row-4 h3 a:hover {
+	text-decoration: underline !important;
+}
+/* make the lightbox effect on images more obvious */
+.featherlight {
+	background: rgba(0,0,0,0.7) !important;
+}
+.featherlight .featherlight-content {
+	background: transparent;
+}
+.featherlight .featherlight-close-icon {
+	opacity: 1;
+}
+.et_pb_portfolio_grid_items, .et_pb_portfolio_items { /* the case study picture cards */
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.et_pb_post_extra.el_dbe_block_extended { /* the Divi Blog Extras module. Remove the border from the tiles. */
+	border: none;
+}
+.et_pb_grid_item {
+  box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3);
+}
+.et_pb_grid_item h3 {
+  padding: 10px 20px 30px 20px !important;
+}
+@media only screen and (min-width: 768px) and (max-width: 1280px){
+	.cards-row-3 { flex-basis: 47% !important; }
+	.subpage-title-col { 
+		flex-basis: 100% !important;
+		width: auto !important;
+		margin-bottom: 30px;
+	}
+}
+@media only screen and (min-width: 768px) and (max-width: 1580px){
+	.cards-row-4, .et_pb_portfolio_grid_items>div, .et_pb_portfolio_items>div {
+		flex-basis: 47% !important;
+	}
+}
+@media only screen and (min-width: 1280px){
+	  .cards-row-3 { flex-basis: 31% !important; }
+}
+@media only screen and (min-width: 1580px){
+	.cards-row-4, .et_pb_portfolio_grid_items>div, .et_pb_portfolio_items>div {
+		flex-basis: 22% !important;
+	}
+	/*.et_pb_portfolio_grid_items>div, .et_pb_portfolio_items>div {
+		width: 22% !important;  added this to prevent the 4th card wrapping early on certain screen resolution 
+	}*/
+}
+/* end picture cards wrap */
+
+
+/*Menu CTA Button*/
+#et-top-navigation .et_pb_button {
+    margin-top: 0px;
+    font-size: inherit;
+    font-weight: inherit;
+    color: #ffffff;
+    border-radius: 32px;
+    background-color:#0080a7;
+}
+
+#et-top-navigation .et_pb_button:hover {
+    margin-top: 0px;
+    font-size: inherit;
+    font-weight: inherit;
+    color: #0080a7;
+    border-radius: 32px;
+    background-color:#ffffff;
+    border-color: #0080a7
+}
+
+ 
+#et-top-navigation .et_pb_button:after {
+    font-size: 23px;
+}
+
+/* Added by Tony Chung to expand all toggles when printing */
+/* Print toggle styles begin */
+@media print {
+	div.et_pb_toggle_close {
+		background-color: transparent !important;
+		border: none;
+	}
+	h5.et_pb_toggle_title::before {
+		content: normal !important;
+	}
+	div.et_pb_toggle_content {
+		display: block !important;
+	}
+	form.et_pb_searchform, div.et_mobile_nav_menu , button.et_pb_menu__search-button, .no-print {
+		display: none !important;
+	}
+	footer, #feedback-form {
+		display: none;
+	}
+	.et_pb_fullwidth_menu_0_tb_header.et_pb_fullwidth_menu {
+		background-color: #ffffff;
+	}
+	.main-body-with-side-nav {
+		margin-left: 0px !important;
+	}
+}
+/* Print toggle styles end */
+
+/* Added by Tony Chung to make table more mobile friendly */
+/* Table styles begin */
+.mobileMsg {
+    display: none;
+    background-color: rgb(255,255,255);
+    padding: 0.4em;
+    font-weight: normal;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+@media only screen and (max-width: 800px) {
+    .tableContainer {
+        width: 100%;
+        overflow-y: hidden;
+    }
+    table {
+        position: relative;
+    }
+}
+.mobileMsg > input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 16px;
+    background: #efefef;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.mobileMsg > input[type=range]:hover {
+    opacity: 1;
+}
+
+.mobileMsg > input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 16px;
+    background: #666;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.mobileMsg > input[type=range]::-moz-range-thumb {
+    width: 100px;
+    height: 20px;
+    background: #666;
+    cursor: pointer;
+    border-radius: 8px;
+}
+/* Table styles end */
+
+/* Added by Craig Housley to style tables */
+table.plain-table { border-top:1px solid #cccccc; }
+table.plain-table tr { border-bottom:1px solid #cccccc; }
+table.plain-table th { background-color:#efefef; padding:10px; border:1px solid #cccccc; }
+table.plain-table td { padding:10px; border:1px solid #cccccc; }
+table.plain-table caption { text-align: left; font-weight: bold;}
+table.uoa-table { border-spacing: 2px; border-collapse: separate; }
+table.uoa-table th { background-color:#0080a6; padding:10px; color:#ffffff; }
+table.uoa-table td { padding:10px; }
+table.uoa-table td { background-color:#eaf5f8; }
+table.uoa-table caption { text-align:left; }
+/* End styled tables */
+
+/* Change the breakpoint for when the mobile menu displays */
+@media (max-width: 1396px) {
+   #et_mobile_nav_menu {
+     display: block;
+   }
+ 
+   #top-menu {
+     display: none;
+   }
+ }
+
+/* START: Collapse Divi Menu Module Submenus and Keep Parent Items Clickable on Mobile */
+/* Parent menu item */
+.et_mobile_nav_menu::before {
+	content: "Global menu";
+	padding-top: 5px;
+}
+
+.et_pb_module .et_mobile_menu .menu-item-has-children.clickable,
+.et_pb_module .et_mobile_menu .menu-item-has-children > a {
+  position: relative;
+  background: transparent;
+}
+/* Parent menu item icon */
+.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable) > a::after,
+.et_pb_module .et_mobile_menu .menu-item-has-children.clickable > span.parent_icon:after {
+  font-family: "ETmodules";
+  text-align: center;
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+/* Disabled parent menu item icon positioning */
+.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable) > a::after {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+}
+/* Clickable parent menu item icon */
+.et_pb_module .et_mobile_menu .menu-item-has-children.clickable > span.parent_icon {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  align-items: center;
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  background: rgba(0, 0, 0, 0);
+  border-left: 1px solid #dcdcdc;
+  right: 0;
+  top: 0;
+  z-index: 9;
+}
+/* Collapsed submenu parent menu item icon */
+.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable) > a::after,
+.et_pb_module .et_mobile_menu .menu-item-has-children.clickable > span.parent_icon::after {
+  content: "\33";
+  color: #333333;
+  font-size: 22px;
+}
+/* Expanded submenu parent menu item icon */
+.et_pb_module .et_mobile_menu .menu-item-has-children:not(.clickable).visible > a::after,
+.et_pb_module .et_mobile_menu .menu-item-has-children.clickable.visible > span.parent_icon::after {
+  content: "\32";
+  color: #333333;
+  font-size: 22px
+}
+.et_pb_module .et_mobile_menu ul.sub-menu a {
+  font-weight: normal;
+}
+.et_pb_module .et_mobile_menu .current-menu-item > a:first-child {
+	background: #e6e6e6 !important;
+}
+/* Hide submenu by default */
+.et_pb_module .et_mobile_menu ul.sub-menu,
+.et-db #et-boc .et-l .et_pb_menu .et_mobile_menu > ul.sub-menu,
+.et-db #et-boc .et-l .et_pb_fullwidth_menu .et_mobile_menu > ul.sub-menu {
+  display: none !important;
+  visibility: hidden !important;
+}
+/* Show submenu */
+.et_pb_module .et_mobile_menu .visible > ul.sub-menu,
+.et_pb_module .et_mobile_menu .current-menu-ancestor > ul.sub-menu,
+.et-db #et-boc .et-l .et_pb_menu .et_mobile_menu .visible > ul.sub-menu,
+.et-db #et-boc .et-l .et_pb_fullwidth_menu .et_mobile_menu .visible > ul.sub-menu {
+  display: block !important;
+  visibility: visible !important;
+}
+/* END: Collapse Divi Menu Module Submenus and Keep Parent Items Clickable on Mobile */
+
+/* Added by Tony Chung to change bullets to a checkbox style */
+/* bullet styles begin */
+.checklist ul, .checklist-checked ul {
+  list-style: none;
+  margin-left: -30px;
+}
+
+.checklist li, .checklist-checked li {
+  text-indent: -1.5em;
+  padding-left: 1em;
+}
+
+.checklist li::before {
+ 	content: "\f14a";
+	padding-right: 5px;
+	font-size: 24px;
+ 	font-family: 'fontawesome';
+}
+
+.checklist-checked li::before {
+ 	content: "\F14A";
+	padding-right: 5px;
+	font-size: 24px;
+ 	font-family: 'fontawesome';
+}
+/* bullet styles end */
+
+/* external link icon 
+.external-link {
+	background-image: url("/wp-content/uploads/2024/09/external-link-5.svg");
+	background-position: right center;
+	background-repeat:no-repeat;
+	padding-right: 17px;
+	margin-right: 5px;
+}
+
+external link icon end */
