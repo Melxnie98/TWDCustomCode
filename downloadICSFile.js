@@ -33,17 +33,32 @@ CALSCALE:GREGORIAN
             // Loop through each event and generate a VEVENT for it
             eventDates.forEach(event => {
                 const formattedDate = formatDateToICS(event.date);
-                const startTimeFormatted = formatTimeToICS(event.startTime);
-                const endTimeFormatted = formatTimeToICS(event.endTime);
+                let icsEvent = '';
 
-                const icsEvent = `
+                if (event.isAllDay) {
+                    // If it's an all-day event, use date-only format (no time)
+                    icsEvent = `
+BEGIN:VEVENT
+SUMMARY:${eventName}
+DTSTART;VALUE=DATE:${formattedDate}
+DTEND;VALUE=DATE:${event.endDate}  // Event ends the next day
+DESCRIPTION:Details for this event (including a Zoom link if applicable) are on TeachWell Digital: ${eventUrl}
+END:VEVENT
+                    `.trim();
+                } else {
+                    // Otherwise, treat as a time-based event
+                    const startTimeFormatted = formatTimeToICS(event.startTime);
+                    const endTimeFormatted = formatTimeToICS(event.endTime);
+
+                    icsEvent = `
 BEGIN:VEVENT
 SUMMARY:${eventName}
 DTSTART:${formattedDate}T${startTimeFormatted}00
 DTEND:${formattedDate}T${endTimeFormatted}00
 DESCRIPTION:Details for this event (including a Zoom link if applicable) are on TeachWell Digital: ${eventUrl}
 END:VEVENT
-                `.trim();
+                    `.trim();
+                }
 
                 // Append each event to the overall ICS content
                 icsContent += `\n${icsEvent}`;
@@ -64,14 +79,31 @@ END:VEVENT
             const eventEntries = startDateElement.textContent.trim().split(","); // ["17-02-2025 11:00-12:00", "18-02-2025 09:00-10:00", "19-02-2025 14:00-15:00"]
 
             eventEntries.forEach(entry => {
-                const [date, timeRange] = entry.trim().split(" "); // "17-02-2025" and "11:00-12:00"
-                const [startTime, endTime] = timeRange.split("-"); // "11:00" and "12:00"
+                const parts = entry.trim().split(" "); // ["17-02-2025", "11:00-12:00"] or ["17-02-2025"]
+                const date = parts[0];
+                let startTime, endTime, isAllDay = false;
+                let endDate;
+
+                if (parts.length === 1) {
+                    // If only a date is provided (no time), it's an all-day event
+                    isAllDay = true;
+                    // Set the end date for the all-day event to the next day
+                    const nextDay = new Date(date.split("-").reverse().join("-"));
+                    nextDay.setDate(nextDay.getDate() + 1); // Add one day
+                    endDate = nextDay.toISOString().split("T")[0]; // Get the next day as YYYY-MM-DD
+                } else {
+                    // Otherwise, it's a time-based event
+                    const timeRange = parts[1];
+                    [startTime, endTime] = timeRange.split("-");
+                }
 
                 // Push the event details to the eventDates array
                 eventDates.push({
                     date: date,
                     startTime: startTime,
-                    endTime: endTime
+                    endTime: endTime,
+                    isAllDay: isAllDay,
+                    endDate: isAllDay ? endDate : date // If all-day, use next day's date for endDate
                 });
             });
         }
