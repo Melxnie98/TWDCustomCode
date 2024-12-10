@@ -1,0 +1,66 @@
+/* Styles for event item container */
+.event-item {
+    background-color: #f9f9f9; /* Light background */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: box-shadow 0.3s ease;
+}
+
+.event-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.event-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333; /* Dark text */
+}
+
+.event-item h3 a {
+    text-decoration: none;
+    color: #0073e6; /* Blue links */
+}
+
+.event-item h3 a:hover {
+    text-decoration: underline;
+}
+
+/* Date and time styling */
+.event-item p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #555; 
+}
+
+.event-item p strong {
+    color: #333; 
+    font-weight: bold;
+}
+
+.event-item p:first-child {
+    margin-top: 0;
+}
+
+.event-item p:last-child {
+    margin-bottom: 0;
+}
+
+/* Section header styling for month */
+h2 {
+    font-size: 2em;
+    margin-top: 40px;
+    color: #444; /* Dark gray  for the month header */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Add some spacing for the whole event list */
+.events-list {
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 0 15px;
+}
